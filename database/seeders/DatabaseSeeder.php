@@ -24,8 +24,8 @@ class DatabaseSeeder extends Seeder
         // Appel du seeder pour la table 'FeedbackSeeder'
         $this->call(FeedbackSeeder::class);
       
-        // // Appel du seeder pour la table 'AgentsSeeder'
-        // $this->call(AgentsSeeder::class);
+        // Appel du seeder pour la table 'AgentsSeeder'
+        $this->call(AgentsSeeder::class);
 
         //  // Appel du seeder pour la table 'TasksSeeder'
         // $this->call(TasksSeeder::class);
