@@ -3,29 +3,45 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
+use App\Models\Campus;
 
 class CampusesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
-  public function run(): void
-{
-    $categoriesData = [
-        ['name' => 'Category 1', 'color' => '#FF0000', 'created_at' => now(), 'updated_at' => now()],
-        ['name' => 'Category 2', 'color' => '#00FF00', 'created_at' => now(), 'updated_at' => now()],
-        ['name' => 'Category 3', 'color' => '#0000FF', 'created_at' => now(), 'updated_at' => now()],
-        ['name' => 'Category 4', 'color' => '#FFFF00', 'created_at' => now(), 'updated_at' => now()],
-    ];
+public function run()
+    {
+        Campus::create([
+            'name' => 'Campus A',
+            'address' => '123 Rue de la Liberté',
+            'city' => 'Ville A',
+            'postal_code' => '12345',
+            'country' => 'Pays A',
+        ]);
 
-    foreach ($categoriesData as &$category) {
-        // Génération du slug à partir du nom de la catégorie
-        $category['slug'] = Str::slug($category['name']);
+        Campus::create([
+            'name' => 'Campus B',
+            'address' => '456 Avenue de la République',
+            'city' => 'Ville B',
+            'postal_code' => '67890',
+            'country' => 'Pays B',
+        ]);
+
+        Campus::create([
+            'name' => 'Campus C',
+            'address' => '789 Boulevard des Étoiles',
+            'city' => 'Ville C',
+            'postal_code' => '13579',
+            'country' => 'Pays C',
+        ]);
+
+        Campus::create([
+            'name' => 'Campus D',
+            'address' => '987 Rue du Soleil',
+            'city' => 'Ville D',
+            'postal_code' => '24680',
+            'country' => 'Pays D',
+        ]);
     }
-
-    // Insertion des catégories dans la base de données
-    DB::table('categories')->insert($categoriesData);
-}
 }

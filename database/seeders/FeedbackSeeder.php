@@ -13,19 +13,15 @@ class FeedbackSeeder extends Seeder
      */
   public function run(): void
 {
-    $categoriesData = [
-        ['name' => 'Category 1', 'color' => '#FF0000', 'created_at' => now(), 'updated_at' => now()],
-        ['name' => 'Category 2', 'color' => '#00FF00', 'created_at' => now(), 'updated_at' => now()],
-        ['name' => 'Category 3', 'color' => '#0000FF', 'created_at' => now(), 'updated_at' => now()],
-        ['name' => 'Category 4', 'color' => '#FFFF00', 'created_at' => now(), 'updated_at' => now()],
-    ];
-
-    foreach ($categoriesData as &$category) {
-        // Génération du slug à partir du nom de la catégorie
-        $category['slug'] = Str::slug($category['name']);
-    }
-
-    // Insertion des catégories dans la base de données
-    DB::table('categories')->insert($categoriesData);
+    for ($i = 1; $i <= 4; $i++) {
+            DB::table('feedback')->insert([
+                'campus_id' => $i,
+                'happy' => rand(0, 20),
+                'neutral' => rand(0, 20),
+                'bad' => rand(0, 20),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
 }
 }

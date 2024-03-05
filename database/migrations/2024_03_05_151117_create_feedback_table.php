@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('feedback', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('campus_id');
+            $table->foreign('campus_id')->references('id')->on('campuses')->onDelete('cascade');
             $table->integer('happy')->default(0);
             $table->integer('neutral')->default(0);
             $table->integer('bad')->default(0);
             $table->timestamps();
-            $table->foreign('campus_id')->references('id')->on('campuses')->onDelete('cascade');
         });
     }
 
