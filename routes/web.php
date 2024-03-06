@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AgentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dashboard\Analytics;
 use App\Http\Controllers\layouts\WithoutMenu;
@@ -55,11 +56,19 @@ Route::get('/layouts/container', [Container::class, 'index'])->name('layouts-con
 Route::get('/layouts/blank', [Blank::class, 'index'])->name('layouts-blank');
 
 // pages
-Route::get('/pages/account-settings-account', [AccountSettingsAccount::class, 'index'])->name('pages-account-settings-account');
-Route::get('/pages/account-settings-notifications', [AccountSettingsNotifications::class, 'index'])->name('pages-account-settings-notifications');
-Route::get('/pages/account-settings-connections', [AccountSettingsConnections::class, 'index'])->name('pages-account-settings-connections');
+Route::get('/pages/account-settings-account', [AccountSettingsAccount::class, 'index'])->name(
+  'pages-account-settings-account'
+);
+Route::get('/pages/account-settings-notifications', [AccountSettingsNotifications::class, 'index'])->name(
+  'pages-account-settings-notifications'
+);
+Route::get('/pages/account-settings-connections', [AccountSettingsConnections::class, 'index'])->name(
+  'pages-account-settings-connections'
+);
 Route::get('/pages/misc-error', [MiscError::class, 'index'])->name('pages-misc-error');
-Route::get('/pages/misc-under-maintenance', [MiscUnderMaintenance::class, 'index'])->name('pages-misc-under-maintenance');
+Route::get('/pages/misc-under-maintenance', [MiscUnderMaintenance::class, 'index'])->name(
+  'pages-misc-under-maintenance'
+);
 
 // authentication
 Route::get('/auth/login-basic', [LoginBasic::class, 'index'])->name('auth-login-basic');
@@ -106,4 +115,6 @@ Route::get('/form/layouts-vertical', [VerticalForm::class, 'index'])->name('form
 Route::get('/form/layouts-horizontal', [HorizontalForm::class, 'index'])->name('form-layouts-horizontal');
 
 // tables
-Route::get('/tables/basic', [TablesBasic::class, 'index'])->name('tables-basic');
+Route::get('/agents', [AgentController::class, 'index'])->name('agents');
+Route::get('/agents/create', [AgentController::class, 'create'])->name('agents.create');
+Route::get('/agents/modify', [AgentController::class, 'modify'])->name('agents.modify');

@@ -152,50 +152,6 @@
       "menuHeader": "Apps & Pages"
     },
     {
-      "url": "https://demos.themeselection.com/sneat-bootstrap-html-laravel-admin-template/demo-1/app/email",
-      "name": "Email",
-      "icon": "menu-icon tf-icons bx bx-envelope",
-      "slug": "app-email",
-      "target": "_blank",
-      "badge": [
-        "label-primary fs-tiny",
-        "Pro"
-      ]
-    },
-    {
-      "url": "https://demos.themeselection.com/sneat-bootstrap-html-laravel-admin-template/demo-1/app/chat",
-      "name": "Chat",
-      "icon": "menu-icon tf-icons bx bx-chat",
-      "slug": "app-chat",
-      "target": "_blank",
-      "badge": [
-        "label-primary fs-tiny",
-        "Pro"
-      ]
-    },
-    {
-      "url": "https://demos.themeselection.com/sneat-bootstrap-html-laravel-admin-template/demo-1/app/calendar",
-      "name": "Calendar",
-      "icon": "menu-icon tf-icons bx bx-calendar",
-      "slug": "app-calendar",
-      "target": "_blank",
-      "badge": [
-        "label-primary fs-tiny",
-        "Pro"
-      ]
-    },
-    {
-      "url": "https://demos.themeselection.com/sneat-bootstrap-html-laravel-admin-template/demo-1/app/kanban",
-      "name": "Kanban",
-      "icon": "menu-icon tf-icons bx bx-grid",
-      "slug": "app-kanban",
-      "target": "_blank",
-      "badge": [
-        "label-primary fs-tiny",
-        "Pro"
-      ]
-    },
-    {
       "name": "Account Settings",
       "icon": "menu-icon tf-icons bx bx bx-dock-top",
       "slug": "pages-account-settings",
@@ -433,49 +389,31 @@
       ]
     },
     {
-      "url": "https://demos.themeselection.com/sneat-bootstrap-html-laravel-admin-template/demo-1/form/validation",
-      "icon": "menu-icon tf-icons bx bx-list-check",
-      "name": "Form Validation",
-      "slug": "form-validation",
-      "target": "_blank",
-      "badge": [
-        "label-primary fs-tiny",
-        "Pro"
-      ]
-    },
-    {
-      "url": "tables/basic",
+      "url": "agents",
       "icon": "menu-icon tf-icons bx bx-table",
-      "name": "Tables",
-      "slug": "tables-basic"
+      "name": "Agents",
+      "slug": "agents"
     },
     {
-      "url": "https://demos.themeselection.com/sneat-bootstrap-html-laravel-admin-template/demo-1/tables/datatables-basic",
-      "icon": "menu-icon tf-icons bx bx-grid",
-      "name": "Datatables",
-      "slug": "tables-datatables",
-      "target": "_blank",
-      "badge": [
-        "label-primary fs-tiny",
-        "Pro"
-      ]
+      "url": "sessions/basic",
+      "icon": "menu-icon tf-icons bx bx-table",
+      "name": "Sessions",
+      "slug": "sessions-basic"
+    },
+    {
+      "url": "campus/basic",
+      "icon": "menu-icon tf-icons bx bx-table",
+      "name": "Campus",
+      "slug": "campus-basic"
+    },
+    {
+      "url": "tasks/basic",
+      "icon": "menu-icon tf-icons bx bx-table",
+      "name": "Taches",
+      "slug": "tasks-basic"
     },
     {
       "menuHeader": "Misc"
-    },
-    {
-      "url": "https://github.com/themeselection/sneat-bootstrap-html-laravel-admin-template-free/issues",
-      "icon": "menu-icon tf-icons bx bx-support",
-      "name": "Support",
-      "slug": "support",
-      "target": "_blank"
-    },
-    {
-      "url": "https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/laravel-introduction.html",
-      "icon": "menu-icon tf-icons bx bx-file",
-      "name": "Documentation",
-      "slug": "documentation",
-      "target": "_blank"
     }
   ]
 }
