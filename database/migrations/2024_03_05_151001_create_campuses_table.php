@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('city')->nullable();
             $table->string('postal_code')->nullable();
             $table->string('country')->nullable();
+            $table->unsignedDecimal('fillingRate', 5, 2)->default(0);
             $table->timestamps();
         });
     }

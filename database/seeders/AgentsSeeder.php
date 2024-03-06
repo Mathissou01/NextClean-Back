@@ -11,10 +11,11 @@ class AgentsSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-public function run()
+    public function run()
     {
         DB::table('agents')->insert([
-            'name' => 'John Doe',
+            'last_name' => 'John',
+            'first_name' => 'Doe',
             'email' => 'john@example.com',
             'phone_number' => '1234567890',
             'hire_date' => '2022-01-01',

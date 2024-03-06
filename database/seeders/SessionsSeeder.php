@@ -1,31 +1,39 @@
 <?php
 
-namespace Database\Seeders;
-
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
+use Carbon\Carbon;
 
-class SessionsSeeder extends Seeder
+class SessionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
+     *
+     * @return void
      */
-  public function run(): void
-{
-    $categoriesData = [
-        ['name' => 'Category 1', 'color' => '#FF0000', 'created_at' => now(), 'updated_at' => now()],
-        ['name' => 'Category 2', 'color' => '#00FF00', 'created_at' => now(), 'updated_at' => now()],
-        ['name' => 'Category 3', 'color' => '#0000FF', 'created_at' => now(), 'updated_at' => now()],
-        ['name' => 'Category 4', 'color' => '#FFFF00', 'created_at' => now(), 'updated_at' => now()],
-    ];
+    public function run()
+    {
+        $numberOfSessionsPerCampus = 5; // Nombre de sessions par campus
 
-    foreach ($categoriesData as &$category) {
-        // Génération du slug à partir du nom de la catégorie
-        $category['slug'] = Str::slug($category['name']);
+        // Parcourir chaque campus
+        for ($campusId = 1; $campusId <= 4; $campusId++) {
+            // Générer plusieurs sessions pour chaque campus
+            for ($i = 0; $i < $numberOfSessionsPerCampus; $i++) {
+                $startTime = Carbon::now()->addDays(rand(1, 30))->addHours(rand(8, 16))->addMinutes(rand(0, 59));
+                $endTime = $startTime->copy()->addHours(rand(1, 4))->addMinutes(rand(0, 59));
+
+                $sessions[] = [
+                    'task_id' => rand(1, 10), // Remplacer 10 par l'ID maximal de votre table de tâches
+                    'agent_id' => rand(1, 10), // Remplacer 10 par l'ID maximal de votre table d'agents
+                    'start_time' => $startTime,
+                    'end_time' => $endTime,
+                    'campus_id' => $campusId,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ];
+            }
+        }
+
+        DB::table('sessions')->insert($sessions);
     }
-
-    // Insertion des catégories dans la base de données
-    DB::table('categories')->insert($categoriesData);
-}
 }
