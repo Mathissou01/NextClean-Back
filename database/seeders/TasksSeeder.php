@@ -14,7 +14,7 @@ class TasksSeeder extends Seeder
     {
         $tasks = [];
 
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 0; $i < 8; $i++) {
             $tasks[] = [
                 'name' => 'Task ' . ($i + 1),
                 'description' => 'Description of Task ' . ($i + 1),
