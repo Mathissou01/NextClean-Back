@@ -44,6 +44,9 @@ use App\Http\Controllers\form_elements\InputGroups;
 use App\Http\Controllers\form_layouts\VerticalForm;
 use App\Http\Controllers\form_layouts\HorizontalForm;
 use App\Http\Controllers\tables\Basic as TablesBasic;
+use App\Http\Controllers\SessionController;
+use App\Http\Controllers\CampusController;
+use App\Http\Controllers\TaskController;
 
 // Main Page Route
 Route::get('/', [Analytics::class, 'index'])->name('dashboard-analytics');
@@ -114,7 +117,39 @@ Route::get('/forms/input-groups', [InputGroups::class, 'index'])->name('forms-in
 Route::get('/form/layouts-vertical', [VerticalForm::class, 'index'])->name('form-layouts-vertical');
 Route::get('/form/layouts-horizontal', [HorizontalForm::class, 'index'])->name('form-layouts-horizontal');
 
-// tables
+// agents
 Route::get('/agents', [AgentController::class, 'index'])->name('agents');
 Route::get('/agents/create', [AgentController::class, 'create'])->name('agents.create');
-Route::get('/agents/modify', [AgentController::class, 'modify'])->name('agents.modify');
+Route::post('/agents/store', [AgentController::class,'store'])->name('agents.store');
+// Modification d'un agent
+Route::get('/agents/{agent}/edit', [AgentController::class, 'edit'])->name('agents.edit');
+// Mise à jour d'un agent
+Route::post('/agents/{agent}/update', [AgentController::class, 'update'])->name('agents.update');
+// Suppression d'un agent
+Route::get('/agents/{agent}/delete', [AgentController::class, 'destroy'])->name('agents.destroy');
+
+// sessions
+Route::get('/sessions', [SessionController::class, 'index'])->name('sessions');
+Route::get('/sessions/create', [SessionController::class, 'create'])->name('session.create');
+Route::post('/sessions/store', [SessionController::class,'store'])->name('session.store');
+Route::get('/sessions/{session}/edit', [SessionController::class, 'edit'])->name('session.edit');
+Route::put('/sessions/{session}/update', [SessionController::class, 'update'])->name('session.update');
+Route::get('/sessions/{session}/delete', [SessionController::class, 'destroy'])->name('session.destroy');
+
+// campus
+Route::get('/campuses', [CampusController::class, 'index'])->name('campuses.index');
+Route::get('/campuses/create', [CampusController::class, 'create'])->name('campuses.create');
+Route::post('/campuses/store', [CampusController::class,'store'])->name('campuses.store');
+Route::get('/campuses/{campus}/edit', [CampusController::class, 'edit'])->name('campuses.edit');
+Route::put('/campuses/{campus}/update', [CampusController::class, 'update'])->name('campuses.update');
+Route::delete('/campuses/{campus}', [CampusController::class, 'destroy'])->name('campuses.destroy');
+
+// task
+Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
+Route::get('/tasks/create', [TaskController::class, 'create'])->name('tasks.create');
+Route::post('/tasks/store', [TaskController::class,'store'])->name('tasks.store');
+Route::get('/tasks/{Task}/edit', [TaskController::class, 'edit'])->name('tasks.edit');
+Route::put('/tasks/{task}', [TaskController::class, 'update'])->name('tasks.update');
+Route::delete('/tasks/{Task}', [TaskController::class, 'destroy'])->name('tasks.destroy');
+
+Route::get('/dashboard-analytics', [FeedbackController::class, 'dashboardAnalytics']);

@@ -3,10 +3,7 @@
 @section('title', 'Tables - Basic Tables')
 
 @section('content')
-<h4 class="py-3 mb-4">
-  <span class="text-muted fw-light">Tables /</span> Agents
-</h4>
-
+<h1 class="h3 mb-3">Agents</h1>
 <!-- Basic Bootstrap Table -->
 <div class="card">
   <!-- Card header with "Create Agent" button -->
@@ -39,10 +36,8 @@
               <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i
                   class="bx bx-dots-vertical-rounded"></i></button>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="{{ route('agents.modify') }}" onclick="editAgent({{ $agent->id }})"><i
-                    class="bx bx-edit-alt me-1"></i> Modifier</a>
-                <a class="dropdown-item" href="javascript:void(0);" onclick="deleteAgent({{ $agent->id }})"><i
-                    class="bx bx-trash me-1"></i> Supprimer</a>
+                <a class="dropdown-item" href="{{ route('agents.edit', $agent->id) }}"><i class="bx bx-edit-alt me-1"></i> Modifier</a>
+                <a class="dropdown-item" href="{{ route('agents.destroy', $agent->id) }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet agent ?');"><i class="bx bx-trash me-1"></i> Supprimer</a>
               </div>
             </div>
           </td>
@@ -52,6 +47,4 @@
     </table>
   </div>
 </div>
-<!--/ Basic Bootstrap Table -->
-
 @endsection
