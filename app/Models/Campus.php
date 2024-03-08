@@ -9,6 +9,12 @@ class Campus extends Model
 {
     use HasFactory;
 
+    public function feedbacks()
+    {
+        return $this->hasMany(Feedback::class);
+    }
+
+
     protected $fillable = ['name', 'address', 'city', 'postal_code', 'country', 'fillingRate'];
 
 }
